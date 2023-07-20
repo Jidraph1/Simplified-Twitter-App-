@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twitter Clone</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav style="background-color: rgb(113, 154, 241); height: 50px">
+        <h3>Twitter Clone</h3>
+        <p>
+          Search
+          <select class="search-dropdown" id="myDropdown">
+            <option value="" selected disabled hidden></option>
+            <option value="item1">Yaddaaah Yadaaah 1</option>
+            <option value="item2">Yaddaaah Yadaaah 2</option>
+            <option value="item3">Yaddaaah Yadaaah 3</option>
+          </select>
+        </p>
+      </nav>
+
+      <div class="user-details">
+        <div>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm_Vx34j9p8vqza6fKZizBtw_uW4zA2J5XdA&usqp=CAU"
+            style="margin-top: -30px"
+          />
+        </div>
+        <div style="line-height: 10px">
+          <h2 id="user-name"></h2>
+          <p>@Bret</p>
+          <p>Link to My Website</p>
+          <p id="user-email"></p>
+
+          <p id="user-website"></p>
+          <p style="align-items: center">
+            <img
+              class="tiny-images"
+              src="images/free-pin-icon-48-thumb-removebg-preview.png"
+            />
+            GwenBorough
+          </p>
+        </div>
+      </div>
+
+      
+
+      <div class="tweet-form">
+        <input type="text" name="" id="tweet-input" placeholder="New Tweet" />
+
+        <button id="tweet-button">Tweet</button>
+      </div>
+
+      <div class="container2">
+        <div  id="timeline">
+          <!-- TWEETS -->
+        </div>
+        <div class="cont_comments">
+        
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- <script src="getComments.js"></script> -->
+  </body>
+
+
+</html>
