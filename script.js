@@ -1,13 +1,18 @@
-let contComments = document.querySelector('.cont_comments')
+let contComments = document.querySelector(".cont_comments");
+let selectedUser
+// ...........................
+// Receive DropDown Menu
+
+//  ................
 
 function getComments(postID) {
   fetch(`https://jsonplaceholder.typicode.com/comments`)
-  .then((res) => res.json())
-  .then((data) => {
-    let postComments = data.filter((comment) => comment.postId == postID)
-    // console.log(postComments);
-    postComments.forEach((comment) =>{
-      contComments.innerHTML += `
+    .then((res) => res.json())
+    .then((data) => {
+      let postComments = data.filter((comment) => comment.postId == postID);
+      // console.log(postComments);
+      postComments.forEach((comment) => {
+        contComments.innerHTML += `
       <div class="fancy">
       <div>
       <img src="maleavatar.jpeg" alt="" >
@@ -25,17 +30,16 @@ function getComments(postID) {
   </div>
     </div>
       </div>
-      `
-    })
-  });
-  
+      `;
+      });
+    });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   fetch("https://jsonplaceholder.typicode.com/users")
     .then((response) => response.json())
     .then((users) => {
-      const selectedUser = users[2];
+      selectedUser = users[8];
 
       document.getElementById("user-name").textContent = selectedUser.name;
       document.getElementById(
@@ -81,6 +85,20 @@ document.addEventListener("DOMContentLoaded", () => {
             timeline.appendChild(tweet);
           });
         });
+      
+        let userDropDown = document.querySelector(".userSelect");
+
+        fetch("https://jsonplaceholder.typicode.com/users")
+          .then((resp) => resp.json())
+          .then((data) => {
+            console.log(data);
+            let userslist = data;
+            userslist.forEach(user => {
+              userDropDown.innerHTML += `
+              <option value="${user.id}">${user.name}</option>
+              `
+            } )
+          });
     });
 
   document.getElementById("tweet-button").addEventListener("click", () => {
@@ -92,9 +110,9 @@ document.addEventListener("DOMContentLoaded", () => {
     tweet.innerHTML = `
       <div> 
 
-      <p class="title">New Tweet</p>
+      <p class="title">You TweeteselectedUserd</p>
       <p class="body">${tweetText}</p>
-      <p class="email">Author: Your Email</p></div>
+  
 
       `;
 
@@ -104,3 +122,10 @@ document.addEventListener("DOMContentLoaded", () => {
     tweetInput.value = "";
   });
 });
+
+
+
+
+// const num = [1, 2, 3];
+// num.map((v) => v * 2);
+// console.log(num);
